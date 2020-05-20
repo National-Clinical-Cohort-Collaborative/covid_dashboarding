@@ -1,0 +1,149 @@
+/* Labs Index Style */
+
+.index-icon {
+	text-align: center;
+	color: grey;
+	opacity: 0.7;
+}
+
+.accordion-head-spacing {
+	min-height: 1px;
+	float: left;
+	display: inline-block;
+	width: 10%;
+	visibility: hidden;
+}
+
+.accordion-head-text {
+	float: center;
+	display: inline-block;
+	width: 80%;
+	text-align: center;
+}
+
+.accordion-head-chevron {
+	float: right;
+	display: inline-block;
+	width: 10%;
+	text-align: right;
+}
+
+#accordion .parent {
+	background-color: white;
+}
+
+#accordion-card-two .card-body{
+	overflow:scroll;
+}
+
+.card-body {
+	overflow: hidden;
+	padding: 0.5rem;
+}
+
+#accordion .card .collapsing {
+	position: relative;
+	height: 0;
+	-webkit-transition-property: height, visibility;
+	transition-property: height, visibility;
+	-webkit-transition-duration: 0.55s;
+	transition-duration: 0.55s;
+	-webkit-transition-timing-function: ease;
+	transition-timing-function: ease;
+}
+
+.card-title{
+	color:#323a3d;
+}
+
+.list-title{
+	color:#185096;
+}
+
+.list-group p{
+	font-size:9.5pt;
+}
+
+.list-group{
+	flex-direction:row;
+	flex-wrap:wrap;
+	justify-content:center;
+}
+
+
+.list-group-item {
+    width:200px;
+    display: none;
+    border-color:grey;
+    background:white;
+}
+
+
+.projects{
+	width:100%;
+	display: none;
+}
+
+.show{
+  display: block;
+}
+
+.hide{
+	display:none !important;
+}
+
+.working_groups{
+	font-size:10pt;
+}
+
+#myBtnContainer .dropdown-menu{
+	background: white;
+	text-transform:none;
+	color:black;
+	padding-top:0;
+	padding-bottom:0;
+}
+
+
+#myBtnContainer .dropdown-menu a, #myBtnContainer button{
+	font-size:10pt;
+}
+
+#myBtnContainer{
+	background:white;
+	text-align:right;
+	height:50px;
+}
+
+.no-show{
+	opacity:0;
+}
+
+/* Show project metadata to devices without hover */
+@media (hover: none) {
+  .no-show {
+    opacity:1;
+  }
+}
+
+#filter_container .dropdown-menu{
+	background: white;
+	text-transform:none;
+	color:black;
+	padding-top:0;
+	padding-bottom:0;
+	width:100%;
+}
+
+#filter_container .dropdown-menu, #filter_container button{
+	font-size:10pt;
+	width:100%;
+}
+
+#filter_container{
+	background:white;
+	width:100%;
+	height:50px;
+}
+
+
