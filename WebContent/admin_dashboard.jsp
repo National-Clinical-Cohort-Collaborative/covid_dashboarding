@@ -67,7 +67,7 @@
                 </ul>
             </div>
  			</div>
-             <div id=others style=" float:left; width:45%">
+             <div id=others style=" float:left; width:100%">
              <br/>
                <sql:query var="cases" dataSource="jdbc/covid">
                     select sum(case_count) from n3c_admin.dashboard where dta_executed is not null;
@@ -75,9 +75,58 @@
                 <c:forEach items="${cases.rows}" var="row" varStatus="rowCounter">
                 <h3>Cumulative Case Count: ${row.sum}</h3>
                </c:forEach>
+             <br/>
             </div>
+			<div id="graph_block" style=" float:left; width:45%">
+				<h3># Executed DTAs by State</h3>
+				<div id="dta_by_state" align="left"></div>
+			</div>
+			<div id="graph_block" style=" float:left; width:45%">
+                <jsp:include page="graphs/verticalBarChart.jsp">
+                    <jsp:param name="data_page" value="adminData.jsp?mode=dta_by_state" />
+                    <jsp:param name="dom_element" value="#dta_by_state" />
+                </jsp:include>
+			<div id="graph_block" style=" float:left; width:45%">
+				<h3># Executed DTAs by Data Network</h3>
+				<div id="dta_by_network" align="left"></div>
+			</div>
+                <jsp:include page="graphs/verticalBarChart.jsp">
+                    <jsp:param name="data_page" value="adminData.jsp?mode=dta_by_network" />
+                    <jsp:param name="dom_element" value="#dta_by_network" />
+                </jsp:include>
+             </div>
+             <div id=others style=" float:left; width:100%">
+              <br/>
+			<div id="graph_block" style=" float:left; width:45%">
+				<h3># DTAs Pending by State</h3>
+				<div id="dta_pending_by_state" align="left"></div>
+			</div>
+                <jsp:include page="graphs/verticalBarChart.jsp">
+                    <jsp:param name="data_page" value="adminData.jsp?mode=dta_pending_by_state" />
+                    <jsp:param name="dom_element" value="#dta_pending_by_state" />
+                </jsp:include>
+			<div id="graph_block" style=" float:left; width:45%">
+				<h3># DTAs Pending by Date</h3>
+				<div id="dta_pending" align="left"></div>
+             <br/>
+			</div>
+                <jsp:include page="graphs/verticalBarChart.jsp">
+                    <jsp:param name="data_page" value="adminData.jsp?mode=dta_pending" />
+                    <jsp:param name="dom_element" value="#dta_pending" />
+                </jsp:include>
+			<div id="graph_block" style=" float:left; width:45%">
+				<h3># DTAs Pending by Data Network</h3>
+				<div id="dta_pending_by_network" align="left"></div>
+			</div>
+                <jsp:include page="graphs/verticalBarChart.jsp">
+                    <jsp:param name="data_page" value="adminData.jsp?mode=dta_pending_by_network" />
+                    <jsp:param name="dom_element" value="#dta_pending_by_network" />
+                </jsp:include>
+             </div>
  		</div>
 	</div>
+             <div id=others style=" float:left; width:100%">
+			<jsp:include page="/footer.jsp" flush="true" /></div>
 </body>
 </html>
             

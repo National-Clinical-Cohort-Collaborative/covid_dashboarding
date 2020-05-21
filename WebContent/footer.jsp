@@ -30,8 +30,8 @@
 				itemtype="https://www.schema.org/SiteNavigationElement"
 				id="menu-item-997"
 				class="menu-item menu-item-type-custom menu-item-object-custom menu-item-997 nav-item"><a
-				title="CD2H Labs" href="http://labs.cd2h.org"
-				class="nav-link">CD2H Labs</a></li>
+				title="N3C" href="http://covid.cd2h.org"
+				class="nav-link">N3C</a></li>
 		</ul>
 	</div>
 	<div class="container pl-0 pr-0 small-space">

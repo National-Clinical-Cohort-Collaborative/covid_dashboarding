@@ -10,8 +10,14 @@
 .settings/org.eclipse.wst.jsdt.ui.superType.name -text
 .settings/org.eclipse.wst.validation.prefs -text
 WebContent/META-INF/MANIFEST.MF -text
+WebContent/adminData.jsp -text
 WebContent/admin_dashboard.jsp -text
+WebContent/dta_dashboard.jsp -text
 WebContent/footer.jsp -text
+WebContent/graphs/forceGraph.jsp -text
+WebContent/graphs/forcePhoto.jsp -text
+WebContent/graphs/singleHorizontalStackedBar.jsp -text
+WebContent/graphs/verticalBarChart.jsp -text
 WebContent/head.jsp -text
 WebContent/header.jsp -text
 WebContent/index.jsp -text
