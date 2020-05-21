@@ -41,7 +41,7 @@
                 <br/>
                	<p>Unmatched NCATS entries:</p>
               <sql:query var="unmatched" dataSource="jdbc/covid">
-                    select site_name,dta_executed from n3c_admin.ncats where dta_executed is not null and site_name not in (select ncats from n3c_admin.mapping where ncats is not null) order by dta_executed desc;
+                    select site_name,dta_executed from n3c_admin.ncats where dta_executed is not null and site_name not in (select ncats from n3c_admin.mapping_ncats where ncats is not null) order by dta_executed desc;
                 </sql:query>
                 <ul>
                 <c:forEach items="${unmatched.rows}" var="row" varStatus="rowCounter">
