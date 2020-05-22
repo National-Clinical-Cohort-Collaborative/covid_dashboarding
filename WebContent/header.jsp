@@ -23,10 +23,11 @@
                         
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark pt-0 pb-1">
-  <a id="labs_image" onmouseover="animateScript()" onmouseout="stopanimate()" class="navbar-brand" href="http://labs.cd2h.org" title="Labs Home"></a>
+  <a id="labs_image" onmouseover="animateScript()" onmouseout="stopanimate()" class="navbar-brand" href="/covid_dashboarding/" title="Labs Home"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <jsp:include page="local_nav.jsp"/>

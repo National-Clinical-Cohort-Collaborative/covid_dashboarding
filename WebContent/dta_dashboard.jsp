@@ -3,6 +3,7 @@
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
 <html lang="en-US">
@@ -30,7 +31,7 @@
 							<h3>DTAs Executed: ${row.count} <i>(date executed)</i></h3>
 						</c:forEach>
 						<sql:query var="dtas" dataSource="jdbc/covid">
-                    		select site,dta_executed from n3c_admin.dashboard where dta_executed is not null order by dta_executed desc;
+                    		select site,dta_executed from n3c_admin.dashboard where dta_executed is not null order by dta_executed desc,site;
                 		</sql:query>
 						<ul>
 							<c:forEach items="${dtas.rows}" var="row" varStatus="rowCounter">
@@ -59,7 +60,7 @@
 							<h3>DTAs Pending: ${row.count}<i>(date sent)</i></h3>
 						</c:forEach>
 						<sql:query var="dtas" dataSource="jdbc/covid">
-                    		select site,dta_sent from n3c_admin.dashboard where dta_executed is  null order by dta_sent desc;
+                    		select site,dta_sent from n3c_admin.dashboard where dta_executed is  null order by dta_sent desc,site;
                 		</sql:query>
 						<ul>
 							<c:forEach items="${dtas.rows}" var="row" varStatus="rowCounter">
@@ -107,7 +108,14 @@
                     		select sum(case_count) from n3c_admin.dashboard where dta_executed is not null;
                 		</sql:query>
 						<c:forEach items="${cases.rows}" var="row" varStatus="rowCounter">
-							<h3>Cumulative Case Count: ${row.sum}</h3>
+							<h3>Cumulative Case Count: <fmt:formatNumber type="number" groupingUsed="true" value="${row.sum}" />
+							<sql:query var="null_cases" dataSource="jdbc/covid">
+	                    		select count(*) from n3c_admin.dashboard where dta_executed is not null and case_count is null;
+	                		</sql:query>
+							<c:forEach items="${null_cases.rows}" var="row" varStatus="rowCounter">
+								<i>(${row.count} sites with no case count)</i>
+							</c:forEach>
+							</h3>
 						</c:forEach>
 						<br />
 						<div id="graph_block" style="float: left; width: 45%">
@@ -163,7 +171,7 @@
                     		select sum(case_count) from n3c_admin.dashboard where dta_executed is null;
                 		</sql:query>
 						<c:forEach items="${cases.rows}" var="row" varStatus="rowCounter">
-							<h3>Cumulative Case Count: ${row.sum}</h3>
+							<h3>Cumulative Case Count: <fmt:formatNumber type="number" groupingUsed="true" value="${row.sum}" /></h3>
 						</c:forEach>
 						<br />
 						<div id="graph_block" style="float: left; width: 45%">

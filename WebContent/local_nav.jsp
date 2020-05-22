@@ -1,12 +1,6 @@
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="<util:applicationRoot/>/index.jsp" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
-          Home
-        </a>
-      </li>
-
-      <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           DTAs
         </a>

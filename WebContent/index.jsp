@@ -20,8 +20,51 @@
 		<br /> <br />
 		<div class="container-fluid">
 			<h1>N3C Administrative Dashboard</h1>
-			<p>Currently we are only tracking progress on the Data Transfer Agreements.  We will be merging IRB protocol status in the next few days.
+			<p>Currently we are only tracking progress on the Data Transfer Agreements.  We aree merging IRB protocol status data.
 			Once the Data Use Agreement processing begins, we will also include that data.</p>
+			<table>
+				<tr>
+					<th>Element</th>
+					<th>Total</th>
+					<th>Completed</th>
+				</tr>
+				<tr>
+					<td>DTA</td>
+					<td align=right>
+						<sql:query var="dta" dataSource="jdbc/covid">
+                    		select count(*) from n3c_admin.ncats where dta_sent is not null;
+                		</sql:query>
+						<c:forEach items="${dta.rows}" var="row" varStatus="rowCounter">
+							${row.count}
+						</c:forEach>
+					</td>
+					<td align=right>
+						<sql:query var="dta" dataSource="jdbc/covid">
+                    		select count(*) from n3c_admin.ncats where dta_executed is not null;
+                		</sql:query>
+						<c:forEach items="${dta.rows}" var="row" varStatus="rowCounter">
+							${row.count}
+						</c:forEach>
+					</td>
+				</tr>
+				<tr>
+					<td>IRB</td>
+					<td align=right>
+						<sql:query var="dta" dataSource="jdbc/covid">
+                    		select count(*) from n3c_admin.irb;
+                		</sql:query>
+						<c:forEach items="${dta.rows}" var="row" varStatus="rowCounter">
+							${row.count}
+						</c:forEach>
+					</td>
+					<td align=right></td>
+				</tr>
+				<tr>
+					<td>DUA</td>
+					<td align=right></td>
+					<td align=right></td>
+				</tr>
+			</table>
 		</div>
 		<jsp:include page="footer.jsp" flush="true" />
 	</div>
