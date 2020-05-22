@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <jsp:include page="head.jsp" flush="true">
-	<jsp:param name="title" value="SciTS API" />
+	<jsp:param name="title" value="N3C DTA Analytics" />
 </jsp:include>
 <style type="text/css" media="all">
 @import "resources/layout.css";
