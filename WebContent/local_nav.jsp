@@ -34,6 +34,7 @@
         <div class="dropdown-menu" aria-haspopup="true" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="<util:applicationRoot/>/mapping/mapper_ncats.jsp">to NCATS</a>
           <a class="dropdown-item" href="<util:applicationRoot/>/mapping/mapper_irb.jsp">to sIRB</a>
+          <a class="dropdown-item" href="<util:applicationRoot/>/mapping/mapper_acquisition.jsp">to Data Acquisition Group</a>
          </div>
       </li>
       
