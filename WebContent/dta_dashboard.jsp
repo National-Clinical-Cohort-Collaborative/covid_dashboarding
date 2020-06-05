@@ -35,7 +35,7 @@
                 		</sql:query>
 						<ul>
 							<c:forEach items="${dtas.rows}" var="row" varStatus="rowCounter">
-								<li>${row.site}(${row.dta_executed })
+								<li>${row.site} (${row.dta_executed })
 							</c:forEach>
 						</ul>
 
@@ -47,7 +47,7 @@
 						<ul>
 							<c:forEach items="${unmatched.rows}" var="row"
 								varStatus="rowCounter">
-								<li>${row.site_name}(${row.dta_executed })
+								<li>${row.site_name} (${row.dta_executed })
 							</c:forEach>
 						</ul>
 					</div>
@@ -57,14 +57,14 @@
                 		</sql:query>
 						<c:forEach items="${dta.rows}" var="row" varStatus="rowCounter">
 							<br />
-							<h3>DTAs Pending: ${row.count}<i>(date sent)</i></h3>
+							<h3>DTAs Pending: ${row.count} <i>(date sent)</i></h3>
 						</c:forEach>
 						<sql:query var="dtas" dataSource="jdbc/covid">
                     		select site,dta_sent from n3c_admin.dashboard where dta_executed is  null order by dta_sent desc,site;
                 		</sql:query>
 						<ul>
 							<c:forEach items="${dtas.rows}" var="row" varStatus="rowCounter">
-								<li>${row.site}(${row.dta_sent })
+								<li>${row.site} (${row.dta_sent })
 							</c:forEach>
 						</ul>
 
@@ -76,7 +76,7 @@
 						<ul>
 							<c:forEach items="${unmatched.rows}" var="row"
 								varStatus="rowCounter">
-								<li>${row.site_name}(${row.dta_sent })
+								<li>${row.site_name} (${row.dta_sent })
 							</c:forEach>
 						</ul>
 					</div>
@@ -94,7 +94,7 @@
                 			</sql:query>
 							<ul>
 								<c:forEach items="${duas.rows}" var="row" varStatus="rowCounter">
-									<li>${row.site}(${row.dta_executed })
+									<li>${row.site} (${row.dta_executed })
 								</c:forEach>
 							</ul>
 						</div>
