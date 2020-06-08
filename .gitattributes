@@ -10,10 +10,12 @@
 .settings/org.eclipse.wst.jsdt.ui.superType.name -text
 .settings/org.eclipse.wst.validation.prefs -text
 WebContent/META-INF/MANIFEST.MF -text
+WebContent/acq_dashboard.jsp -text
 WebContent/adminData.jsp -text
 WebContent/admin_dashboard.jsp -text
 WebContent/dta_dashboard.jsp -text
 WebContent/footer.jsp -text
+WebContent/full_dashboard.jsp -text
 WebContent/graphs/forceGraph.jsp -text
 WebContent/graphs/forcePhoto.jsp -text
 WebContent/graphs/singleHorizontalStackedBar.jsp -text
@@ -38,6 +40,7 @@ WebContent/images/tile_background4.png -text
 WebContent/images/tile_background_external.png -text
 WebContent/images/working.png -text
 WebContent/index.jsp -text
+WebContent/irb_dashboard.jsp -text
 WebContent/local_nav.jsp -text
 WebContent/mapping/mapper_acquisition.jsp -text
 WebContent/mapping/mapper_irb.jsp -text
@@ -46,6 +49,7 @@ WebContent/mapping/submit_acquisition.jsp -text
 WebContent/mapping/submit_irb.jsp -text
 WebContent/mapping/submit_ncats.jsp -text
 WebContent/menu.jsp -text
+WebContent/public.jsp -text
 WebContent/resources/anime.min.js -text
 WebContent/resources/cd2h -text
 WebContent/resources/css -text

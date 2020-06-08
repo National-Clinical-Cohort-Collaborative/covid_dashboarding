@@ -4,22 +4,17 @@
 <c:choose>
 	<c:when test="${param.mode == 'dta_by_state' }">
 		<sql:query var="entries" dataSource="jdbc/covid">
-    		select state as label,count(*) from n3c_admin.dashboard where dta_executed is not null group by 1 order by 2 desc;
+    		select state as label ,count(*) from n3c_admin.dashboard where dta_executed is not null group by 1 order by 2 desc,1;
 		</sql:query>
 	</c:when>
 	<c:when test="${param.mode == 'dta_by_network' }">
 		<sql:query var="entries" dataSource="jdbc/covid">
-    		select data_network as label,count(*) from n3c_admin.dashboard where dta_executed is not null group by 1 order by 2 desc;
+    		select ctsa_non_ctsa as label,count(*) from n3c_admin.dashboard where dta_executed is not null group by 1 order by 2 desc;
 		</sql:query>
 	</c:when>
-	<c:when test="${param.mode == 'dta_by_reason' }">
+	<c:when test="${param.mode == 'dta_by_group' }">
 		<sql:query var="entries" dataSource="jdbc/covid">
-    		select target_reason as label,count(*) from n3c_admin.dashboard where dta_executed is not null group by 1 order by 2 desc;
-		</sql:query>
-	</c:when>
-	<c:when test="${param.mode == 'dta_by_wave' }">
-		<sql:query var="entries" dataSource="jdbc/covid">
-    		select wave as label,count(*) from n3c_admin.dashboard where dta_executed is not null group by 1 order by 2 desc;
+    		select group_consortium as label,count(*) from n3c_admin.dashboard where dta_executed is not null group by 1 order by 2 desc;
 		</sql:query>
 	</c:when>
 	<c:when test="${param.mode == 'dta_pending' }">
@@ -34,17 +29,27 @@
 	</c:when>
 	<c:when test="${param.mode == 'dta_pending_by_network' }">
 		<sql:query var="entries" dataSource="jdbc/covid">
-    		select data_network as label,count(*) from n3c_admin.dashboard where dta_executed is null group by 1 order by 2 desc, 1;
+    		select ctsa_non_ctsa as label,count(*) from n3c_admin.dashboard where dta_executed is null group by 1 order by 2 desc, 1;
 		</sql:query>
 	</c:when>
-	<c:when test="${param.mode == 'dta_pending_by_reason' }">
+	<c:when test="${param.mode == 'dta_pending_by_group' }">
 		<sql:query var="entries" dataSource="jdbc/covid">
-    		select target_reason as label,count(*) from n3c_admin.dashboard where dta_executed is null group by 1 order by 2 desc;
+    		select group_consortium as label,count(*) from n3c_admin.dashboard where dta_executed is null group by 1 order by 2 desc;
 		</sql:query>
 	</c:when>
-	<c:when test="${param.mode == 'dta_pending_by_wave' }">
+	<c:when test="${param.mode == 'acq_meeting' }">
 		<sql:query var="entries" dataSource="jdbc/covid">
-    		select wave as label,count(*) from n3c_admin.dashboard where dta_executed is null group by 1 order by 2 desc;
+    		select first_meeting as label,count(*) from n3c_admin.dashboard3 group by 1 order by 1;
+		</sql:query>
+	</c:when>
+	<c:when test="${param.mode == 'acq_by_state' }">
+		<sql:query var="entries" dataSource="jdbc/covid">
+    		select state as label,count(*) from n3c_admin.dashboard3 group by 1 order by 2 desc, 1;
+		</sql:query>
+	</c:when>
+	<c:when test="${param.mode == 'acq_by_model' }">
+		<sql:query var="entries" dataSource="jdbc/covid">
+    		select data_model as label,count(*) from n3c_admin.dashboard3 group by 1 order by 2 desc, 1;
 		</sql:query>
 	</c:when>
 </c:choose>

@@ -104,20 +104,6 @@
 					<h2>Executed Data Transfer Agreements</h2>
 					<div id=others style="float: left; width: 100%">
 						<br />
-						<sql:query var="cases" dataSource="jdbc/covid">
-                    		select sum(case_count) from n3c_admin.dashboard where dta_executed is not null;
-                		</sql:query>
-						<c:forEach items="${cases.rows}" var="row" varStatus="rowCounter">
-							<h3>Cumulative Case Count: <fmt:formatNumber type="number" groupingUsed="true" value="${row.sum}" />
-							<sql:query var="null_cases" dataSource="jdbc/covid">
-	                    		select count(*) from n3c_admin.dashboard where dta_executed is not null and case_count is null;
-	                		</sql:query>
-							<c:forEach items="${null_cases.rows}" var="row" varStatus="rowCounter">
-								<i>(${row.count} sites with no case count)</i>
-							</c:forEach>
-							</h3>
-						</c:forEach>
-						<br />
 						<div id="graph_block" style="float: left; width: 45%">
 							<h3>Count by State</h3>
 							<div id="dta_by_state" align="left"></div>
@@ -129,7 +115,7 @@
 								<jsp:param name="dom_element" value="#dta_by_state" />
 							</jsp:include>
 							<div id="graph_block" style="float: left; width: 45%">
-								<h3>Count by Data Network</h3>
+								<h3>Count by CTSA/Community</h3>
 								<div id="dta_by_network" align="left"></div>
 							</div>
 							<jsp:include page="graphs/verticalBarChart.jsp">
@@ -142,23 +128,14 @@
 					<div id=others style="float: left; width: 100%">
 						<br />
 						<div id="graph_block" style="float: left; width: 45%">
-							<h3>Count by Target Reason</h3>
+							<h3>Count by Group/Consortium</h3>
 							<div id="dta_by_reason" align="left"></div>
 						</div>
 						<div id="graph_block" style="float: left; width: 45%">
 							<jsp:include page="graphs/verticalBarChart.jsp">
 								<jsp:param name="data_page"
-									value="adminData.jsp?mode=dta_by_reason" />
+									value="adminData.jsp?mode=dta_by_group" />
 								<jsp:param name="dom_element" value="#dta_by_reason" />
-							</jsp:include>
-							<div id="graph_block" style="float: left; width: 45%">
-								<h3>Count by Wave</h3>
-								<div id="dta_by_wave" align="left"></div>
-							</div>
-							<jsp:include page="graphs/verticalBarChart.jsp">
-								<jsp:param name="data_page"
-									value="adminData.jsp?mode=dta_by_wave" />
-								<jsp:param name="dom_element" value="#dta_by_wave" />
 							</jsp:include>
 						</div>
 					</div>
@@ -166,13 +143,6 @@
 				<c:when test="${param.view == 'pending' }">
 					<h2>Pending Data Transfer Agreements</h2>
 					<div id=others style="float: left; width: 100%">
-						<br />
-						<sql:query var="cases" dataSource="jdbc/covid">
-                    		select sum(case_count) from n3c_admin.dashboard where dta_executed is null;
-                		</sql:query>
-						<c:forEach items="${cases.rows}" var="row" varStatus="rowCounter">
-							<h3>Cumulative Case Count: <fmt:formatNumber type="number" groupingUsed="true" value="${row.sum}" /></h3>
-						</c:forEach>
 						<br />
 						<div id="graph_block" style="float: left; width: 45%">
 							<h3>Count by State</h3>
@@ -194,7 +164,7 @@
 							<jsp:param name="dom_element" value="#dta_pending" />
 						</jsp:include>
 						<div id="graph_block" style="float: left; width: 45%">
-							<h3>Count by Data Network</h3>
+							<h3>Count by CTSA/Community</h3>
 							<div id="dta_pending_by_network" align="left"></div>
 						</div>
 						<jsp:include page="graphs/verticalBarChart.jsp">
@@ -206,23 +176,14 @@
 					<div id=others style="float: left; width: 100%">
 						<br />
 						<div id="graph_block" style="float: left; width: 45%">
-							<h3>Count by Target Reason</h3>
+							<h3>Count by Group/Consortium</h3>
 							<div id="dta_pending_by_reason" align="left"></div>
 						</div>
 						<div id="graph_block" style="float: left; width: 45%">
 							<jsp:include page="graphs/verticalBarChart.jsp">
 								<jsp:param name="data_page"
-									value="adminData.jsp?mode=dta_pending_by_reason" />
+									value="adminData.jsp?mode=dta_pending_by_group" />
 								<jsp:param name="dom_element" value="#dta_pending_by_reason" />
-							</jsp:include>
-							<div id="graph_block" style="float: left; width: 45%">
-								<h3>Count by Wave</h3>
-								<div id="dta_pending_by_wave" align="left"></div>
-							</div>
-							<jsp:include page="graphs/verticalBarChart.jsp">
-								<jsp:param name="data_page"
-									value="adminData.jsp?mode=dta_pending_by_wave" />
-								<jsp:param name="dom_element" value="#dta_pending_by_wave" />
 							</jsp:include>
 						</div>
 					</div>
