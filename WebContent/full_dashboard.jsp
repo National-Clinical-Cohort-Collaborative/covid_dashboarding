@@ -25,7 +25,7 @@
                 		</sql:query>
 						<table>
 							<tr>
-								<th colspan=8></th>
+								<th colspan=17></th>
 								<th colspan=4>NCATS</th>
 								<th colspan=5>sIRB</th>
 								<th colspan=3>Data Acquisition Group</th>
@@ -37,8 +37,17 @@
 								<th>CTSA/Non-CTSA</th>
 								<th>CTSA/Community</th>
 								<th>Group/Consortium</th>
+								<th>Contacting Person</th>
+								<th>Contact Made</th>
+								<th>PI Contact</th>
+								<th>PI Email</th>
+								<th>Data Ingest</th>
 								<th>Data Ingest Date</th>
+								<th>Date Script Sent</th>
 								<th>Initial Data Received</th>
+								<th>Last Data Received</th>
+								<th>Update Frequency</th>
+								<th>Notes</th>
 								<th>DTA Sent</th>
 								<th>DTA Executed</th>
 								<th>DUA Sent</th>
@@ -60,8 +69,17 @@
 									<td>${row.ctsa_non_ctsa}</td>
 									<td>${row.ctsa_community}</td>
 									<td>${row.group_consortium}</td>
+									<td>${row.contacting_person}</td>
+									<td>${row.contact_made}</td>
+									<td>${row.pi_contact}</td>
+									<td>${row.pi_email}</td>
+									<td>${row.data_ingest}</td>
 									<td>${row.data_ingest_date}</td>
+									<td>${row.date_script_sent}</td>
 									<td>${row.initial_data_received}</td>
+									<td>${row.last_data_received}</td>
+									<td>${row.update_frequency}</td>
+									<td>${row.notes}</td>
 									<td>${row.dta_sent}</td>
 									<td>${row.dta_executed}</td>
 									<td>${row.dua_sent}</td>
