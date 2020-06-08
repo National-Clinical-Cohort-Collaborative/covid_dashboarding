@@ -16,30 +16,33 @@
 
 <body class="home page-template-default page page-id-6 CD2H">
 	<jsp:include page="header.jsp" flush="true" />
-	<div class="container pl-0 pr-0">
 		<br /> <br />
-		<div class="container-fluid">
 			<c:choose>
 				<c:when test="${empty param.view or param.view == 'detail' }">
 					<h2>Overall Status</h2>
-					<div id=others style="float: left; width: 100%">
 						<sql:query var="dta" dataSource="jdbc/covid">
-                    		select * from n3c_admin.dashboard order by site;
+                    		select *, case when dta_executed is null or cleared is null then null when dta_executed > cleared then dta_executed else cleared end as completed from n3c_admin.dashboard order by site;
                 		</sql:query>
 						<table>
+							<tr>
+								<th colspan=8></th>
+								<th colspan=4>NCATS</th>
+								<th colspan=5>sIRB</th>
+								<th colspan=3>Data Acquisition Group</th>
+							</tr>
 							<tr>
 								<th>Site</th>
 								<th>City</th>
 								<th>State</th>
-								<th>DTA Sent</th>
-								<th>DTA Executed</th>
-								<th>DUA Sent</th>
-								<th>DUA Executed</th>
 								<th>CTSA/Non-CTSA</th>
 								<th>CTSA/Community</th>
 								<th>Group/Consortium</th>
 								<th>Data Ingest Date</th>
 								<th>Initial Data Received</th>
+								<th>DTA Sent</th>
+								<th>DTA Executed</th>
+								<th>DUA Sent</th>
+								<th>DUA Executed</th>
 								<th>Submitted to sIRB</th>
 								<th>sIRB Approved</th>
 								<th>Local IRB Approved</th>
@@ -54,31 +57,28 @@
 									<td>${row.site}</td>
 									<td>${row.city}</td>
 									<td>${row.state}</td>
-									<td>${row.dta_sent}</td>
-									<td>${row.dta_executed}</td>
-									<td>${row.dua_sent}</td>
-									<td>${row.dua_executed}</td>
 									<td>${row.ctsa_non_ctsa}</td>
 									<td>${row.ctsa_community}</td>
 									<td>${row.group_consortium}</td>
 									<td>${row.data_ingest_date}</td>
 									<td>${row.initial_data_received}</td>
+									<td>${row.dta_sent}</td>
+									<td>${row.dta_executed}</td>
+									<td>${row.dua_sent}</td>
+									<td>${row.dua_executed}</td>
 									<td>${row.submitted}</td>
 									<td>${row.approved}</td>
 									<td>${row.local_approval}</td>
 									<td>${row.local_receipt}</td>
-									<td>${row.cleared}</td>
+									<td>${row.completed}</td>
 									<td>${row.first_meeting}</td>
 									<td>${row.data_model}</td>
 									<td>${row.passing_data}</td>
 								</tr>
 							</c:forEach>
 						</table>
-					</div>
 				</c:when>
 			</c:choose>
-		</div>
-	</div>
 	<div id=others style="float: left; width: 100%">
 		<jsp:include page="/footer.jsp" flush="true" />
 	</div>
