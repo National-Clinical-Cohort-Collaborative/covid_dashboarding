@@ -59,6 +59,12 @@
 			<c:forEach items="${dta.rows}" var="row" varStatus="rowCounter">
 				<li>First meeting held: ${row.count}
 			</c:forEach>
+			<sql:query var="dta" dataSource="jdbc/covid">
+            	select count(*) from n3c_admin.dashboard3 where passing_data is not null;
+            </sql:query>
+			<c:forEach items="${dta.rows}" var="row" varStatus="rowCounter">
+				<li>Passing data: ${row.count}
+			</c:forEach>
            	</ul>
 			<br>
 
