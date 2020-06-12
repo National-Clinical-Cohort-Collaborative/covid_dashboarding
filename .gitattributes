@@ -14,6 +14,7 @@ WebContent/acq_dashboard.jsp -text
 WebContent/adminData.jsp -text
 WebContent/admin_dashboard.jsp -text
 WebContent/dta_dashboard.jsp -text
+WebContent/embedded.jsp -text
 WebContent/footer.jsp -text
 WebContent/full_dashboard.jsp -text
 WebContent/graphs/forceGraph.jsp -text
