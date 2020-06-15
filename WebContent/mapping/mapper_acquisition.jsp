@@ -25,7 +25,7 @@
  			
              <div id=others style=" float:left; width:45%">
                <sql:query var="cd2h" dataSource="jdbc/covid">
-                    select site from n3c_admin.site_tracking
+                    select site from n3c_admin.n3c
                     where site not in (select n3c from n3c_admin.mapping_acquisition)
                        or site in (select n3c from n3c_admin.mapping_acquisition where acquisition is null) order by site;
                 </sql:query>

@@ -26,6 +26,14 @@
 			<br/>
 			
 			<sql:query var="dta" dataSource="jdbc/covid">
+            	select count(*) from n3c_admin.ncats where dta_sent is not null;
+            </sql:query>
+			<c:forEach items="${dta.rows}" var="row" varStatus="rowCounter">
+				<h3>DTAs Sent: ${row.count}</h3>
+			</c:forEach>
+			<br>
+
+			<sql:query var="dta" dataSource="jdbc/covid">
             	select count(*) from n3c_admin.ncats where dta_executed is not null;
             </sql:query>
 			<c:forEach items="${dta.rows}" var="row" varStatus="rowCounter">

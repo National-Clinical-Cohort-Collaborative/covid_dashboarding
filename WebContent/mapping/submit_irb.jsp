@@ -8,7 +8,7 @@
     </sql:update>
 
     <sql:update dataSource="jdbc/covid">
-        insert into n3c_admin.mapping_irb select coalesce(substring(site from '(.*) \([^)]+\)$'),site) as site,substring(site from '.* \(([^),]+).*\)$') as city,substring(site from '.* \([^),]+, *(.*)\)$') as state,site as n3c,institution as irb from n3c_admin.site_tracking,n3c_admin.irb where site=? and institution=?;
+        insert into n3c_admin.mapping_irb select coalesce(substring(site from '(.*) \([^)]+\)$'),site) as site,substring(site from '.* \(([^),]+).*\)$') as city,substring(site from '.* \([^),]+, *(.*)\)$') as state,site as n3c,institution as irb from n3c_admin.n3c,n3c_admin.irb where site=? and institution=?;
         <sql:param>${param.slot1}</sql:param>
         <sql:param>${param.slot2}</sql:param>
     </sql:update>
