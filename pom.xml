@@ -51,11 +51,25 @@
             <type>jar</type>
             <scope>runtime</scope>
         </dependency>
+        
+        
+        
+        <dependency>
+            <groupId>edu.uiowa.icts.tagUtil</groupId>
+            <artifactId>UtilTagLib</artifactId>
+            <version>1.0.2-SNAPSHOT</version>
+        </dependency>
+        
+        <!--
         <dependency>
             <groupId>edu.uiowa.icts.taglib</groupId>
             <artifactId>UtilTagLib</artifactId>
             <version>1.0.4-SNAPSHOT</version>
         </dependency>
+         
+        
+        
+        
         <dependency>
             <groupId>edu.uiowa.icts.taglib</groupId>
             <artifactId>LuceneTagLib</artifactId>
@@ -86,16 +100,19 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        
         <dependency>
         	<groupId>GraphTagLib</groupId>
         	<artifactId>GraphTagLib</artifactId>
         	<version>0.0.1-SNAPSHOT</version>
         </dependency>
+        
         <dependency>
         	<groupId>JSONTagLib</groupId>
         	<artifactId>JSONTagLib</artifactId>
         	<version>0.0.1-SNAPSHOT</version>
         </dependency>
+        
         <dependency>
         	<groupId>CD2HTagLib</groupId>
         	<artifactId>CD2HTagLib</artifactId>
@@ -106,5 +123,9 @@
         	<artifactId>CD2H-drive</artifactId>
         	<version>0.0.1-SNAPSHOT</version>
         </dependency>
+         -->
+         
+         
+         
     </dependencies>
 </project>
