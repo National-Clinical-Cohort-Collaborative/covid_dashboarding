@@ -16,7 +16,7 @@
             	order by name;
             </sql:query>
             <table class="table table-hover">
-            <thead><tr><th><i class="fa fa-university" aria-hidden="true" style="color: #376076;"></i> Institution (ROR)</th><th><i class="fa fa-user" aria-hidden="true" style="color: #376076;"></i> Local Contact</th><th><i class="fa fa-user" aria-hidden="true" style="color: #376076;"></i> Local PI</th><th><i class="fa fa-calendar-o" aria-hidden="true" style="color: #376076;"></i> Date Executed</th></tr></thead>
+            <thead><tr><th><i class="fa fa-university" aria-hidden="true" style="color: #376076;"></i> Institution</th><th><i class="fa fa-user" aria-hidden="true" style="color: #376076;"></i> Local Contact</th><th><i class="fa fa-user" aria-hidden="true" style="color: #376076;"></i> Local PI</th><th><i class="fa fa-calendar-o" aria-hidden="true" style="color: #376076;"></i> Date Executed</th></tr></thead>
 			<c:forEach items="${dua.rows}" var="row" varStatus="rowCounter">
 				<tr><td>${row.name}</td><td>${row.dua_contact_first} ${row.dua_contact_last}</td><td>${row.piname}</td><td>${row.dua_executed}</td></tr>
 			</c:forEach>
