@@ -10,20 +10,20 @@
     order by name;
 </sql:query>
 
-result = {
-    headers = [
-        {value="site_name", label="Institution"),
-        {value="contact", label="Local Contact"),
-        {value="pi", label="Local PI"),
-        {value="date_executed", label="Date Executed")
+{
+    "headers": [
+        {"value":"site_name", "label":"Institution"},
+        {"value":"contact", "label":"Local Contact"},
+        {"value":"pi", "label":"Local PI"},
+        {"value":"date_executed", "label":"Date Executed"}
     ],
-    rows = [
+    "rows" : [
     <c:forEach items="${dua.rows}" var="row" varStatus="rowCounter">
-	    row: {
-	    	site_name="${row.name}",
-	        contact="${row.dua_contact_first} ${row.dua_contact_last}",
-	        pi="${row.piname}",
-	        date_executed="${row.dua_executed}"
+	    {
+	    	"site_name":"${row.name}",
+	        "contact":"${row.dua_contact_first} ${row.dua_contact_last}",
+	        "pi":"${row.piname}",
+	        "date_executed":"${row.dua_executed}"
 	    }<c:if test="${!rowCounter.last}">,</c:if>
 </c:forEach>
     ]
