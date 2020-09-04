@@ -5,12 +5,26 @@
 	
 			<sql:query var="projects" dataSource="jdbc/covid">
             	select title, description, pi_name, pi_institution
-            	from n3c_admin.n3c_project
+            	from palantir.n3c_project_test
             	order by title;
             </sql:query>
-            <ul>
-			<c:forEach items="${projects.rows}" var="row" varStatus="rowCounter">
-				<li><b>${row.title}</b>: ${row.description}<br><b>PI</b>: ${row.pi_name} <i>(${row.pi_institution})</i>
-			</c:forEach>
-            </ul>
+			
+{
+    "headers": [
+        {"value":"title", "label":"Title"},
+        {"value":"description", "label":"Description"},
+        {"value":"pi_name", "label":"PI Name"},
+        {"value":"pi_institution", "label":"PI Institution"}
+    ],
+    "rows" : [
+    <c:forEach items="${projects.rows}" var="row" varStatus="rowCounter">
+	    {
+	    	"title":"${row.title}",
+	    	"description":"${row.description}",
+	    	"pi_name":"${row.pi_name}",
+	        "pi_institution":"${row.pi_institution}"
+	    }<c:if test="${!rowCounter.last}">,</c:if>
+</c:forEach>
+    ]
+}
 			
