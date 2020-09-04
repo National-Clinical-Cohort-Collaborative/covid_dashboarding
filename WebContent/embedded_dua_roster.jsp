@@ -4,9 +4,8 @@
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
 <sql:query var="dua" dataSource="jdbc/covid">
-    select dua_master.institutionid,site_name,name,dua_contact_first,dua_contact_last,dua_contact_email,piname,piemail,dua_executed
-    from n3c_admin.dua_master,n3c_admin.site_master,ror.organization
-    where dua_executed is not null and id=dua_master.institutionid and dua_master.institutionid=site_master.institutionid
+    select institutionid, institutionname as name, duacontactfirst, duacontactsurname, duaexecuted
+    from n3c_admin.dua_master
     order by name;
 </sql:query>
 
@@ -20,8 +19,8 @@
     <c:forEach items="${dua.rows}" var="row" varStatus="rowCounter">
 	    {
 	    	"site_name":"${row.name}",
-	        "contact":"${row.dua_contact_first} ${row.dua_contact_last}",
-	        "date_executed":"${row.dua_executed}"
+	        "contact":"${row.duacontactfirst} ${row.duacontactsurname}",
+	        "date_executed":"${row.duaexecuted}"
 	    }<c:if test="${!rowCounter.last}">,</c:if>
 </c:forEach>
     ]
