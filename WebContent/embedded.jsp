@@ -4,12 +4,6 @@
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 	
 {		
-			<sql:query var="dta" dataSource="jdbc/covid">
-            	select count(*) from n3c_admin.site_master where dtasent is not null;
-            </sql:query>
-			<c:forEach items="${dta.rows}" var="row" varStatus="rowCounter">
-				"DTAs Sent": ${row.count},
-			</c:forEach>
 
 			<sql:query var="dta" dataSource="jdbc/covid">
             	select count(*) from n3c_admin.site_master where dtaexecuted is not null;
