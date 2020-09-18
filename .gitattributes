@@ -18,6 +18,7 @@ WebContent/embedded.jsp -text
 WebContent/embedded_dua_roster.jsp -text
 WebContent/embedded_dua_roster_table.jsp -text
 WebContent/embedded_project_roster.jsp -text
+WebContent/enclave_dashboard.jsp -text
 WebContent/footer.jsp -text
 WebContent/full_dashboard.jsp -text
 WebContent/graphs/forceGraph.jsp -text
@@ -37,6 +38,7 @@ WebContent/images/logo_sprite.png -text
 WebContent/images/masthead-divider.png -text
 WebContent/images/masthead-hhs-logo.png -text
 WebContent/images/masthead-nih-logo.png -text
+WebContent/images/n3c_logo.png -text svneol=unset#image/png
 WebContent/images/n3c_logo_circle_large.png -text
 WebContent/images/onlinelogomaker-111617-1142-7717.png -text
 WebContent/images/person_icon.png -text
@@ -63,6 +65,7 @@ WebContent/resources/index.css -text
 WebContent/resources/jdbc_environment.jsp -text
 WebContent/resources/layout(old).css -text
 WebContent/resources/layout.css -text
+WebContent/resources/n3c_login_style.css -text
 WebContent/resources/slick.min.css -text
 WebContent/resources/style.css -text
 WebContent/resources/style_original.css -text
