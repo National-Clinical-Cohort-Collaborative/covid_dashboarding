@@ -37,6 +37,13 @@
             	select count(*) from n3c_admin.site_master where passingdata::boolean;
             </sql:query>
 			<c:forEach items="${dta.rows}" var="row" varStatus="rowCounter">
-				"Passing data": ${row.count}
+				"Passing data": ${row.count},
+			</c:forEach>
+
+			<sql:query var="dta" dataSource="jdbc/covid">
+            	select count from n3c_admin.enclave_stats where title='sites_ingested';
+            </sql:query>
+			<c:forEach items="${dta.rows}" var="row" varStatus="rowCounter">
+				"Data visible": ${row.count}
 			</c:forEach>
 }
