@@ -17,6 +17,7 @@ WebContent/dta_dashboard.jsp -text
 WebContent/embedded.jsp -text
 WebContent/embedded_dua_roster.jsp -text
 WebContent/embedded_dua_roster_table.jsp -text
+WebContent/embedded_enclave_stats.jsp -text
 WebContent/embedded_project_roster.jsp -text
 WebContent/enclave_dashboard.jsp -text
 WebContent/footer.jsp -text
