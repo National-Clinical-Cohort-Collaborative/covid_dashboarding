@@ -4,7 +4,7 @@
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 	
 			<sql:query var="projects" dataSource="jdbc/covid">
-            	select title, research_statement, lead_investigator, task_team
+            	select title, research_statement, lead_investigator, accessing_institution, task_team
             	from n3c_admin.enclave_project
             	order by title;
             </sql:query>
@@ -14,6 +14,7 @@
         {"value":"title", "label":"Title"},
         {"value":"description", "label":"Research Statement"},
         {"value":"pi_name", "label":"Lead Investigator"},
+        {"value":"accessing_institution", "label":"Accessing Institution"},
         {"value":"task_team", "label":"Task Team?"}
     ],
     "rows" : [
@@ -22,6 +23,7 @@
 	    	"title":"${row.title}",
 	    	"description":"${row.research_statement}",
 	    	"pi_name":"${row.lead_investigator}",
+	    	"accessing_institution":"${row.accessing_institution}",
 	        "task_team":"${row.task_team}"
 	    }<c:if test="${!rowCounter.last}">,</c:if>
 </c:forEach>
