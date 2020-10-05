@@ -6,7 +6,7 @@
 <c:choose>
 	<c:when test="${param.type == 'operational' }">
 		<sql:query var="projects" dataSource="jdbc/covid">
-            	select title, research_statement, lead_investigator, accessing_institution, task_team
+            	select regexp_replace(title,'[\n\r]',' ','g') as title, regexp_replace(research_statement,'[\n\r]',' ','g') as research_statement, lead_investigator, accessing_institution, task_team
             	from n3c_admin.enclave_project
             	where title ~ '\[N3C'
             	order by title;
@@ -14,7 +14,7 @@
 	</c:when>
 	<c:otherwise>
 		<sql:query var="projects" dataSource="jdbc/covid">
-            	select title, research_statement, lead_investigator, accessing_institution, task_team
+            	select regexp_replace(title,'[\n\r]',' ','g') as title, regexp_replace(research_statement,'[\n\r]',' ','g') as research_statement, lead_investigator, accessing_institution, task_team
             	from n3c_admin.enclave_project
             	where title !~ '\[N3C'
             	order by title;
