@@ -6,18 +6,18 @@
 <c:choose>
 	<c:when test="${param.type == 'operational' }">
 		<sql:query var="projects" dataSource="jdbc/covid">
-            	select regexp_replace(title,'[\n\r]',' ','g') as title, regexp_replace(research_statement,'[\n\r]',' ','g') as research_statement, lead_investigator, accessing_institution, task_team
+            	select to_json(title) as title, to_json(research_statement) as research_statement, to_json(lead_investigator) as lead_investigator, to_json(accessing_institution) as accessing_institution, task_team
             	from n3c_admin.enclave_project
             	where title ~ '\[N3C'
-            	order by title;
+            	order by title::text;
          </sql:query>
 	</c:when>
 	<c:otherwise>
 		<sql:query var="projects" dataSource="jdbc/covid">
-            	select regexp_replace(title,'[\n\r]',' ','g') as title, regexp_replace(research_statement,'[\n\r]',' ','g') as research_statement, lead_investigator, accessing_institution, task_team
+            	select to_json(title) as title, to_json(research_statement) as research_statement, to_json(lead_investigator) as lead_investigator, to_json(accessing_institution) as accessing_institution, task_team
             	from n3c_admin.enclave_project
             	where title !~ '\[N3C'
-            	order by title;
+            	order by title::text;
          </sql:query>
 	</c:otherwise>
 </c:choose>
@@ -33,10 +33,10 @@
     "rows" : [
     <c:forEach items="${projects.rows}" var="row" varStatus="rowCounter">
 	    {
-	    	"title":"${row.title}",
-	    	"description":"${row.research_statement}",
-	    	"pi_name":"${row.lead_investigator}",
-	    	"accessing_institution":"${row.accessing_institution}",
+	    	"title":${row.title},
+	    	"description":${row.research_statement},
+	    	"pi_name":${row.lead_investigator},
+	    	"accessing_institution":${row.accessing_institution},
 	        "task_team":"${row.task_team}"
 	    }<c:if test="${!rowCounter.last}">,</c:if>
 </c:forEach>
