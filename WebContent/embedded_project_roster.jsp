@@ -9,6 +9,7 @@
             	select to_json(title) as title, to_json(research_statement) as research_statement, to_json(lead_investigator) as lead_investigator, to_json(accessing_institution) as accessing_institution, task_team
             	from n3c_admin.enclave_project
             	where title ~ '\[N3C'
+            	and lead_investigator != 'Mariam Deacy'
             	order by title::text;
          </sql:query>
 	</c:when>
@@ -17,6 +18,7 @@
             	select to_json(title) as title, to_json(research_statement) as research_statement, to_json(lead_investigator) as lead_investigator, to_json(accessing_institution) as accessing_institution, task_team
             	from n3c_admin.enclave_project
             	where title !~ '\[N3C'
+            	and lead_investigator != 'Mariam Deacy'
             	order by title::text;
          </sql:query>
 	</c:otherwise>
