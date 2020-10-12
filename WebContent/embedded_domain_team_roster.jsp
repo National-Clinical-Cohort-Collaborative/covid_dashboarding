@@ -3,7 +3,7 @@
 
 <sql:query var="projects" dataSource="jdbc/covid">
 select
-    jsonb_pretty(json_agg(team)::jsonb)
+    jsonb_pretty(jsonb_agg(team))
 from
     (select
         'https://covid.cd2h.org/node/'||nid as url,
