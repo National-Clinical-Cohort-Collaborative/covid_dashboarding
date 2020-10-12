@@ -15,6 +15,7 @@ WebContent/adminData.jsp -text
 WebContent/admin_dashboard.jsp -text
 WebContent/dta_dashboard.jsp -text
 WebContent/embedded.jsp -text
+WebContent/embedded_domain_team_roster.jsp -text
 WebContent/embedded_dua_roster.jsp -text
 WebContent/embedded_dua_roster_table.jsp -text
 WebContent/embedded_enclave_stats.jsp -text
