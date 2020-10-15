@@ -9,14 +9,14 @@ from
         'https://covid.cd2h.org/node/'||nid as url,
         cross_cutting::boolean,
         title,
-        substring(summary from '<p>(.*)</p.*') as summary,
+        substring(summary from '<p>(.*)</p>.*') as summary,
         substring(description from '<h2>Mission</h2>[^<]*(.*)') as description,
         ( select jsonb_agg(leads)
         	from (select
         				delta,
         				'https://covid.cd2h.org/node/'||lead_nid as url,
         				bio.title as name,
-        				substring(bio.body_value from '<p>(.*)</p.*') as institution
+        				substring(bio.body_value from '<p>(.*)</p>.*') as institution
         			from n3c_web.domain_team_lead, n3c_web.bio
         			where domain_team_lead.nid = domain_team.nid
         			  and lead_nid = bio.nid
