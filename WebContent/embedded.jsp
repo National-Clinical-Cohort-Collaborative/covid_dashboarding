@@ -6,7 +6,7 @@
 {		
 
 			<sql:query var="dta" dataSource="jdbc/covid">
-            	select count(*) from n3c_admin.site_master where dtaexecuted is not null;
+            	select count(distinct institutionid) from n3c_admin.dta_master where dtaexecuted is not null;
             </sql:query>
 			<c:forEach items="${dta.rows}" var="row" varStatus="rowCounter">
 				"DTAs Executed": ${row.count},
