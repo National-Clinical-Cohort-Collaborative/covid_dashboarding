@@ -34,7 +34,7 @@
 			</c:forEach>
 
 			<sql:query var="dta" dataSource="jdbc/covid">
-            	select count(*) from n3c_admin.site_master where passingdata::boolean;
+            	select manual_tally as count from n3c_admin.tempstats where variable_name='passingData';
             </sql:query>
 			<c:forEach items="${dta.rows}" var="row" varStatus="rowCounter">
 				"Passing data": ${row.count},
