@@ -20,7 +20,7 @@
 			</c:forEach>
 
 			<sql:query var="dta" dataSource="jdbc/covid">
-            	select count(*) from n3c_admin.site_master where dtaandirbok ~'APPROVED';
+            	select count(*) from n3c_admin.site_master where dtaexecuted is not null and irbapprovaltype ~'APPROVED';
             </sql:query>
 			<c:forEach items="${dta.rows}" var="row" varStatus="rowCounter">
 				"All Regulatory Requirements Completed": ${row.count},
