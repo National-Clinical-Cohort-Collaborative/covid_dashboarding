@@ -27,13 +27,6 @@
 			</c:forEach>
 
 			<sql:query var="dta" dataSource="jdbc/covid">
-            	select count(*) from n3c_admin.site_master where firstcontact is not null and firstcontact!='FALSE';
-            </sql:query>
-			<c:forEach items="${dta.rows}" var="row" varStatus="rowCounter">
-				"Sites met with Data Acquisition Group": ${row.count},
-			</c:forEach>
-
-			<sql:query var="dta" dataSource="jdbc/covid">
             	select manual_tally as count from n3c_admin.tempstats where variable_name='passingData';
             </sql:query>
 			<c:forEach items="${dta.rows}" var="row" varStatus="rowCounter">
