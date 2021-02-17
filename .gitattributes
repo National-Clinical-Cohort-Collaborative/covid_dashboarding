@@ -21,6 +21,7 @@ WebContent/embedded_dua_roster_table.jsp -text
 WebContent/embedded_enclave_metrics.jsp -text
 WebContent/embedded_enclave_stats.jsp -text
 WebContent/embedded_fact_sheet.jsp -text
+WebContent/embedded_people_metrics.jsp -text
 WebContent/embedded_project_roster.jsp -text
 WebContent/enclave_dashboard.jsp -text
 WebContent/footer.jsp -text
