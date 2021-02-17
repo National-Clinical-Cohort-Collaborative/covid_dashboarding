@@ -19,7 +19,7 @@
 			</c:forEach>
 			
 			<sql:query var="dta" dataSource="jdbc/covid">
-            	select count(*) as value from n3c_admin.project;
+            	select count(*) as value from n3c_admin.enclave_project;
             </sql:query>
 			<c:forEach items="${dta.rows}" var="row" varStatus="rowCounter">
 				"projects": "${row.value}",
