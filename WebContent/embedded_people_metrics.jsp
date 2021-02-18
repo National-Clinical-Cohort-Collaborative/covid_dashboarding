@@ -36,7 +36,14 @@
             	select count(*) as value from palantir.n3c_user;
             </sql:query>
 			<c:forEach items="${dta.rows}" var="row" varStatus="rowCounter">
-				"users": "${row.value}"
+				"users": "${row.value}",
+			</c:forEach>
+			
+			<sql:query var="dta" dataSource="jdbc/covid">
+            	select count(distinct institutionid) from n3c_admin.dta_master where dtaexecuted is not null;
+            </sql:query>
+			<c:forEach items="${dta.rows}" var="row" varStatus="rowCounter">
+				"dtas": "${row.count}"
 			</c:forEach>
 
 }
