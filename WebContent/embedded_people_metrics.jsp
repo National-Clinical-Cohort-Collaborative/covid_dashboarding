@@ -18,6 +18,7 @@
 				"number_duas": "${row.value}",
 			</c:forEach>
 			
+			
 			<sql:query var="dta" dataSource="jdbc/covid">
             	select count(*) as value from n3c_admin.enclave_project;
             </sql:query>
@@ -26,7 +27,7 @@
 			</c:forEach>
 			
 			<sql:query var="dta" dataSource="jdbc/covid">
-            	select count(distinct(institutionid)) as value from (select institutionid from n3c_admin.dua_master UNION select institutionid from n3c_admin.dta_master) as x;
+            	select count(distinct(institutionid)) as value from (select institutionid from n3c_admin.dua_master where duaexecuted is not null UNION select institutionid from n3c_admin.dta_master) as x;
             </sql:query>
 			<c:forEach items="${dta.rows}" var="row" varStatus="rowCounter">
 				"institutions": "${row.value}",
