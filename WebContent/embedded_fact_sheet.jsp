@@ -34,7 +34,7 @@
 			</c:forEach>
 
 			<sql:query var="dta" dataSource="jdbc/covid">
-            	select title,trim(to_char(value::int,'FM999,999')) as value from n3c_admin.enclave_stats where title='covid_positive_patients';
+            	select title,trim(to_char(value::int,'FM999,999,999')) as value from n3c_admin.enclave_stats where title='covid_positive_patients';
             </sql:query>
 			<c:forEach items="${dta.rows}" var="row" varStatus="rowCounter">
 				"${row.title}": "${row.value}",
