@@ -32,7 +32,7 @@
 {
     "headers": [
         {"value":"title", "label":"Title"},
-        {"value":"id", "label:"ID"},
+        {"value":"id", "label":"ID"},
         {"value":"description", "label":"Research Statement"},
         {"value":"pi_name", "label":"Lead Investigator"},
         {"value":"accessing_institution", "label":"Accessing Institution"},
