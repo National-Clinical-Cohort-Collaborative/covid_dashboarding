@@ -4,9 +4,10 @@
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
 <sql:query var="dua" dataSource="jdbc/covid">
-    select institutionid, institutionname as name, duacontactfirstname, duacontactsurname, duaexecuted
+    select jsonb_pretty(jsonb_agg(foo)) as aggregate from
+    (select institutionname as site_name, duacontactfirstname||' '||duacontactsurname as contact, duaexecuted as date_executed
     from n3c_admin.dua_master
-    order by name;
+    order by 2) as foo;
 </sql:query>
 
 {
@@ -15,14 +16,10 @@
         {"value":"contact", "label":"Local Contact"},
         {"value":"date_executed", "label":"Date Executed"}
     ],
-    "rows" : [
+    "rows" :
     <c:forEach items="${dua.rows}" var="row" varStatus="rowCounter">
-	    {
-	    	"site_name":"${row.name}",
-	        "contact":"${row.duacontactfirstname} ${row.duacontactsurname}",
-	        "date_executed":"${row.duaexecuted}"
-	    }<c:if test="${!rowCounter.last}">,</c:if>
-</c:forEach>
-    ]
+	    ${row.aggregate}
+	</c:forEach>
+
 }
        
