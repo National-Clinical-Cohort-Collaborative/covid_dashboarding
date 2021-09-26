@@ -16,7 +16,8 @@
 	CASE
 		WHEN title ~ '\[N3C' THEN 'Operational'
   		WHEN title !~ '\[N3C' THEN 'General'
- 		END project_type
+ 		END project_type,
+ 	uid
 	from n3c_admin.enclave_project
 	where lead_investigator != 'Mariam Deacy'
 	order by title::text;
@@ -32,7 +33,8 @@
         {"value":"accessing_institution", "label":"Accessing Institution"},
         {"value":"workspace_status", "label":"Status"},
         {"value":"task_team", "label":"Task Team?"},
-        {"value":"project_type", "label":"Project Type"}
+        {"value":"project_type", "label":"Project Type"},
+        {"value":"uid", "label":"Project ID"}
     ],
     "rows" : [
     <c:forEach items="${projects.rows}" var="row" varStatus="rowCounter">
@@ -43,7 +45,8 @@
 	    	"accessing_institution":${row.accessing_institution},
 	    	"workspace_status":"${row.workspace_status}",
 	        "task_team":"${row.task_team}",
-	        "project_type":"${row.project_type}"
+	        "project_type":"${row.project_type}",
+	        "uid":"${row.uid}"
 	    }<c:if test="${!rowCounter.last}">,</c:if>
 </c:forEach>
     ]
