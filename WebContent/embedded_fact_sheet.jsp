@@ -6,7 +6,7 @@
 {		
 
 			<sql:query var="dta" dataSource="jdbc/covid">
-            	select 'release_date' as title,to_char(substring(value from '[a-zA-Z]*-v[0-9]*-(.*)')::date, 'MonthFMDD, YYYY') as value from n3c_admin.enclave_stats where title='release_name';
+            	select 'release_date' as title,to_char(substring(value from '[a-zA-Z]*-v[0-9]*-(.*)')::date, 'Month FMDD, YYYY') as value from n3c_admin.enclave_stats where title='release_name';
             </sql:query>
 			<c:forEach items="${dta.rows}" var="row" varStatus="rowCounter">
 				"${row.title}": "${row.value}",
