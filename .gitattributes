@@ -25,6 +25,7 @@ WebContent/embedded_people_metrics.jsp -text
 WebContent/embedded_project_roster.jsp -text
 WebContent/embedded_project_roster2.jsp -text
 WebContent/embedded_project_roster3.jsp -text
+WebContent/embedded_tenant_dua_roster.jsp -text
 WebContent/enclave_dashboard.jsp -text
 WebContent/footer.jsp -text
 WebContent/full_dashboard.jsp -text
